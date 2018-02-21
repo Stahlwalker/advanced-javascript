@@ -1,0 +1,22 @@
+{
+  "name": "advanced-javascript",
+  "version": "1.0.0",
+  "description": "Hangman ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Stahlwalker/advanced-javascript.git"
+  },
+  "author": "Stahl",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Stahlwalker/advanced-javascript/issues"
+  },
+  "homepage": "https://github.com/Stahlwalker/advanced-javascript#readme",
+  "dependencies": {
+    "inquirer": "^5.1.0"
+  }
+}
