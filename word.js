@@ -30,7 +30,7 @@ module.exports = Word;
 
 
 
-var letter = require("./letter.js");
+// var letter = require("./letter.js");
 
 
 // var wordList = ['superman', 'batman', 'flash', 'joker', 'cyborg', 'catwoman', 'riddler', 'robin', 'gambit', 'wolverine'];

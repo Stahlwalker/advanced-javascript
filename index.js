@@ -4,61 +4,59 @@ var Letter = require('./letter.js');
 
 var Word = require('./word.js');
 
-        var wordList = ['superman', 'batman', 'flash', 'joker', 'cyborg', 'catwoman', 'riddler', 'robin', 'gambit', 'wolverine'];
-        var randomWord = Math.floor(Math.random() * wordList.length);
-        var word = new Word(wordlist[randomWord]);
-        // return word;
-    
+var wordList = ['superman', 'batman', 'flash', 'joker', 'cyborg', 'catwoman', 'riddler', 'robin', 'gambit', 'wolverine'];
+var randomWord = Math.floor(Math.random() * wordList.length);
+var word = new Word(wordlist[randomWord]);
+// return word;
 
-        var guessesLeft = 10;
-        startGame();
+
+var guessesLeft = 10;
+
 
 function startGame() {
   displayWord();
   inquirer
-  .prompt([
-    // Here we create a basic text prompt.
-    {
-      type: "input",
-      name: "LetterGuessed",
-      message: "Guess a letter for your superhero: "
-    }
-  ])
-  .then(function(inquirerResponse) {
-    // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
-    if (word.checkLetter(inquirerResponse.letter, letters) === true) {
-      console.log("\nWelcome " + "Good Job!");
-    }
-    else {
-      guessesLeft--;
-      if (guessesLeft > 0) {
-        console.log("Incorrect. You have " + guessesLeft + " guessesl eft.");
+    .prompt([
+      // Here we create a basic text prompt.
+      {
+        type: "input",
+        name: "LetterGuessed",
+        message: "Guess a letter for your superhero: "
       }
-      else {
-        console.log("WronGGGGG, Game OVER dude!");
+    ])
+    .then(function (inquirerResponse) {
+      // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
+      if (word.checkLetter(inquirerResponse.letter, letters) === true) {
+        console.log("\nWelcome " + "Good Job!");
+      } else {
+        guessesLeft--;
+        if (guessesLeft > 0) {
+          console.log("Incorrect. You have " + guessesLeft + " guessesl eft.");
+        } else {
+          console.log("WronGGGGG, Game OVER dude!");
+        }
       }
-    }
-    if (word.checkIfSolved(letters) ===false) {
-      if (guessesLeft > 0) {
-        startGame();
+      if (word.checkIfSolved(letters) === false) {
+        if (guessesLeft > 0) {
+          startGame();
+        }
+      } else {
+        displayWord();
+        console.log("Victory is yours!");
       }
-    }
-    else{
-      displayWord();
-      console.log("Victory is yours!");
-    }
-  });  
+    });
 
   function displayWord() {
     var displayedWord = "";
-    for (var i=0; i<letters.lenght; i++) {
-      displayedWord += letters[i].printLetter();
-      displayedWord+= " ";
+    for (var i = 0; i < letters.lenght; i++) {
+      displayedWord += letters[i].displayLetter();
+      displayedWord += " ";
     }
     console.log.log(displayedWord);
-  }};
+  }
+};
 
-
+startGame();
 
 
 
