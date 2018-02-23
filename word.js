@@ -7,7 +7,7 @@ function Word(word) {
   this.checkLetter = function(letter, letters) {
     var correctLetter = false;
     for (var i =0; i<this.word.length; i++) {
-      if (this.word.charAt(i).toLowerCase() === letter.toLowerCase()) {
+      if (this.word.charAt(i) === letter) {
         correctLetter = true;
         letters[i].updatedDisplay();
       }

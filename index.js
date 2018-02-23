@@ -1,13 +1,17 @@
 // Load the NPM Package inquirer
 var inquirer = require("inquirer");
 var Letter = require('./letter.js');
-
 var Word = require('./word.js');
 
 var wordList = ['superman', 'batman', 'flash', 'joker', 'cyborg', 'catwoman', 'riddler', 'robin', 'gambit', 'wolverine'];
 var randomWord = Math.floor(Math.random() * wordList.length);
 var word = new Word(wordList[randomWord]);
 var letters = [];
+console.log('-----------------------');
+console.log("Welcome to Superhero Hangman");
+console.log("Guess a letter of the name of the superhero");
+console.log("Best of luck you you!");
+console.log('-----------------------');
 
 for (var i=0; i<randomWord.length; i++) {
   letters.push(new Letter(randomWord.charAt(i)));
@@ -17,7 +21,7 @@ for (var i=0; i<randomWord.length; i++) {
 
 
 var guessesLeft = 10;
-
+startGame();
 
 function startGame() {
   displayWord();
@@ -34,11 +38,13 @@ function startGame() {
       // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
       if (word.checkLetter(inquirerResponse.letter, letters) === true) {
         console.log("\nWelcome " + "Good Job!");
-      } else {
+      } 
+      else {
         guessesLeft--;
         if (guessesLeft > 0) {
-          console.log("Incorrect. You have " + guessesLeft + " guessesl eft.");
-        } else {
+          console.log("Incorrect. You have " + guessesLeft + " guesses left.");
+        } 
+        else {
           console.log("WronGGGGG, Game OVER dude!");
         }
       }
@@ -62,7 +68,7 @@ function startGame() {
   }
 };
 
-startGame();
+// startGame();
 
 
 
