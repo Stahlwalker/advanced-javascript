@@ -1,22 +1,25 @@
+
 // Load the NPM Package inquirer
 var inquirer = require("inquirer");
+var game = require('./game.js');
 var Letter = require('./letter.js');
-var Word = require('./word.js');
+// var Word = require('./word.js');
 
-var wordList = ['superman', 'batman', 'flash', 'joker', 'cyborg', 'catwoman', 'riddler', 'robin', 'gambit', 'wolverine'];
-var randomWord = Math.floor(Math.random() * wordList.length);
-var word = new Word(wordList[randomWord]);
+var word = game.selectWord();
+var selectedWord = word.word;
+// var randomWord = Math.floor(Math.random() * wordList.length);
+// var word = new Word(wordList[randomWord]);
 var letters = [];
+
+for (var i=0; i<selectedWord.length; i++) {
+  letters.push(new Letter(selectedWord.charAt(i)));
+}
+
 console.log('-----------------------');
 console.log("Welcome to Superhero Hangman");
 console.log("Guess a letter of the name of the superhero");
 console.log("Best of luck you you!");
 console.log('-----------------------');
-
-for (var i=0; i<randomWord.length; i++) {
-  letters.push(new Letter(randomWord.charAt(i)));
-}
-
 // return word;
 
 
@@ -25,20 +28,11 @@ startGame();
 
 function startGame() {
   displayWord();
-  inquirer
-    .prompt([
-      // Here we create a basic text prompt.
-      {
-        type: "input",
-        name: "LetterGuessed",
-        message: "Guess a letter for your superhero: "
-      }
-    ])
-    .then(function (inquirerResponse) {
-      // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
-      if (word.checkLetter(inquirerResponse.letter, letters) === true) {
-        console.log("\nWelcome " + "Good Job!");
-      } 
+  inquirer.prompt({name: "letter", message: "Please enter a letter:"}).then(function(answer) {
+    if (word.checkLetter(answer.letter, letters) == true) {
+      console.log("Good job!");
+
+    }
       else {
         guessesLeft--;
         if (guessesLeft > 0) {
@@ -58,15 +52,17 @@ function startGame() {
       }
     });
 
+  }
+
   function displayWord() {
     var displayedWord = "";
-    for (var i = 0; i < letters.lenght; i++) {
-      displayedWord += letters[i].displayLetter();
+    for (var i=0; i<letters.length; i++) {
+      displayedWord += letters[i].printLetter();
       displayedWord += " ";
     }
     console.log(displayedWord);
   }
-};
+
 
 // startGame();
 

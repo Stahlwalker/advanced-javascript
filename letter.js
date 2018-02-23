@@ -1,14 +1,16 @@
+
+
 // Constructor function for creating letter objects
 function Letter(letter) {
     this.letter = letter;
-    this.placeholder = "_";
+    this.shown = '_';
 
-    this.displayLetter = function() {
-        return this.placeholder;
+    this.printLetter = function() {
+        return this.shown;
     }
 
-    this.updatedDisplay = function() {
-        this.placeholder = letter;
+    this.changeShown = function() {
+        this.shown = letter;
     }
 }
 

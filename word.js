@@ -5,24 +5,24 @@
 function Word(word) {
   this.word = word;
   this.checkLetter = function(letter, letters) {
-    var correctLetter = false;
+    var letterFound = false;
     for (var i =0; i<this.word.length; i++) {
       if (this.word.charAt(i) === letter) {
-        correctLetter = true;
-        letters[i].updatedDisplay();
+        letterFound = true;
+        letters[i].changeShown();
       }
     }
-    return correctLetter;
+    return letterFound;
   }
 
 this.checkIfSolved = function(letters) {
-  var correct = true;
+  var solved = true;
   for (var i=0; i<this.word.length; i++) {
-    if(letters[i].placeholder === '_') {
+    if(letters[i].shown === '_') {
       solved = false;
     }
   }
-  return correct;
+  return solved;
 }
 }
 
