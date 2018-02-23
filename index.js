@@ -6,7 +6,13 @@ var Word = require('./word.js');
 
 var wordList = ['superman', 'batman', 'flash', 'joker', 'cyborg', 'catwoman', 'riddler', 'robin', 'gambit', 'wolverine'];
 var randomWord = Math.floor(Math.random() * wordList.length);
-var word = new Word(wordlist[randomWord]);
+var word = new Word(wordList[randomWord]);
+var letters = [];
+
+for (var i=0; i<randomWord.length; i++) {
+  letters.push(new Letter(randomWord.charAt(i)));
+}
+
 // return word;
 
 
@@ -52,7 +58,7 @@ function startGame() {
       displayedWord += letters[i].displayLetter();
       displayedWord += " ";
     }
-    console.log.log(displayedWord);
+    console.log(displayedWord);
   }
 };
 

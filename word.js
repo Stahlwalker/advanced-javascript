@@ -1,16 +1,18 @@
 
 
+
+
 function Word(word) {
   this.word = word;
   this.checkLetter = function(letter, letters) {
     var correctLetter = false;
     for (var i =0; i<this.word.length; i++) {
       if (this.word.charAt(i).toLowerCase() === letter.toLowerCase()) {
-        letterFound = true;
+        correctLetter = true;
         letters[i].updatedDisplay();
       }
     }
-    return letterFound;
+    return correctLetter;
   }
 
 this.checkIfSolved = function(letters) {
