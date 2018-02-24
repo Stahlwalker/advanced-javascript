@@ -1,7 +1,7 @@
 # advanced-javascript
 
 
-![This is a screen shot of text file results](https://github.com/Stahlwalker/advanced-javascript/blob/master/hangman.jpg)
+![This is a screen shot of text file results](https://github.com/Stahlwalker/advanced-javascript/blob/master/hangman2.jpg)
 
 ## What the project does?
     * This project uses node package managers for inquirer.
