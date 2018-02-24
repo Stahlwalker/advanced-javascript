@@ -18,7 +18,7 @@ for (var i=0; i<selectedWord.length; i++) {
 console.log('-----------------------');
 console.log("Welcome to Superhero Hangman");
 console.log("Guess a letter of the name of the superhero");
-console.log("Best of luck you you!");
+console.log("Best of luck to you!");
 console.log('-----------------------');
 // return word;
 
